@@ -1,7 +1,7 @@
 // Import the dependencies for testing
 const chai = require( 'chai');
 const chaiHttp = require( 'chai-http');
-const app = require( '../../src/server');
+const app = require( '../../app/server');
 
 chai.use(chaiHttp);
 
@@ -33,38 +33,7 @@ chai.should();describe("Controller", () => {
                 });
         });
 
-        it("Post /api/v1/example/show give object with property example 1", (done) => {
-            const testString = "this is an example";
-            const reqBody = {message: testString};
-
-            chai.request(app)
-                .post(`/api/v1/example/new/`)
-                .set('Content-Type', 'application/json')
-                .send(reqBody)
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    res.body.should.be.eql( {example: testString} );
-                    done();
-                });
-        });
-
-        it("Post /api/v1/example/show give object with property example 2", (done) => {
-            const testString = "this is an second example";
-            const reqBody = {message: testString};
-
-            chai.request(app)
-                .post(`/api/v1/example/new/`)
-                .set('Content-Type', 'application/json')
-                .send(reqBody)
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    res.body.should.be.eql( {example: testString} );
-                    done();
-                });
-        });
-
-        it("Post /api/v1/example/show give object with property example 3", (done) => {
-            const testString = "kikou lol";
+        const newExempleRuner = (testString, done) => {
             const reqBody = {message: testString};
             const expected = {example: testString}
 
@@ -77,6 +46,18 @@ chai.should();describe("Controller", () => {
                     res.body.should.be.eql(expected);
                     done();
                 });
+        }
+
+        it("Post /api/v1/new give object with property example 1", (done) => {
+            newExempleRuner("this is an example", done);
+        });
+
+        it("Post /api/v1/new give object with property example 2", (done) => {
+            newExempleRuner("this is an second example", done);
+        });
+
+        it("Post /api/v1/new give object with property example 3", (done) => {
+            newExempleRuner("kikou lol", done);
         });
     })
 });

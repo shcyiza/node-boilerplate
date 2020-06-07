@@ -4,8 +4,8 @@ const consola = require('consola');
 
 const cors = require('cors');
 
-const loggingConfig = require('../config/LogginConfig');
-const responder = require('../middlewares/responder');
+const loggingConfig = require('./config/LogginConfig');
+const responder = require('./middlewares/responder');
 const app = express();
 
 // base configs
@@ -19,7 +19,7 @@ app.use(
 app.use(responder)
 
 // Register our routes from controllers folder
-const v1_routes = require('./controllers/v1')
+const v1_routes = require('./src/controllers/v1')
 app.use('/', v1_routes);
 app.all('/*', (req, res) => {
   res.apiNotFound(new Error("Route not found"));
