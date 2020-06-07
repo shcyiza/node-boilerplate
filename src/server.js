@@ -6,6 +6,7 @@ const consola = require('consola');
 const cors = require('cors');
 
 const loggingConfig = require('./config/LogginConfig');
+const responder = require('./middlewares/responder')
 const app = express();
 
 // base configs
@@ -14,9 +15,12 @@ app.use(
   express.json({ type: 'application/json' }),
   loggingConfig.getMiddleware()
 );
+
+// middelwares
+app.use(responder)
  
 app.get('/', function (req, res) {
-  res.send('Hello World');
+  res.apiBadRequest(Error('Hello World'));
 });
 
 app.post('/', function (req, res) {
