@@ -18,8 +18,8 @@
     "mocha": "^7.2.0"
   },
   "scripts": {
-    "tests": "mocha tests/integration --exit",
-    "tdd": "mocha tests/integration -w",
+    "tests": "mocha --exit",
+    "tdd": "mocha -w --recussive",
     "start": "nodemon src/server.js"
   },
   "author": "",
