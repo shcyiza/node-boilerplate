@@ -2,7 +2,7 @@ const morgan = require("morgan");
 const consola = require("consola");
 
 const logginConfig = {
-    getMiddleware: function () {
+    getMiddleware: function (req, res, next) {
         // logger middleware
         morgan.token("body", req => {
             return (
