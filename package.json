@@ -12,9 +12,14 @@
     "morgan": "^1.10.0",
     "winston": "^3.2.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^7.2.0"
+  },
   "scripts": {
-    "test": "npm run test",
+    "tests": "mocha tests/integration --exit",
+    "tdd": "mocha tests/integration -w",
     "start": "nodemon src/server.js"
   },
   "author": "",

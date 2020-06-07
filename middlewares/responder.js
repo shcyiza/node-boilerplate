@@ -40,6 +40,7 @@ const initAPI = (req, res, next) => {
 
   // Handler for HTTP response codes : errors
   res.apiNotFound = (err, info) => {
+    err.stack = null;
     res.apiError(404, err, info || 'Data not found')
   }
 

@@ -1,8 +1,10 @@
 
 const showAction = require('./showAction');
+const newAction = require('./newAction')
 
 const exampleController = {
-    showAction
+    showAction,
+    newAction
 };
 
 module.exports = exampleController;

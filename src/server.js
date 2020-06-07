@@ -30,3 +30,5 @@ app.listen(3000, () => consola.ready({
     badge: true,
   })
 );
+
+module.exports = app;
