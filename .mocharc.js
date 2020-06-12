@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-  spec: 'tests/**/*.js'
+  spec: 'tests/src/**/*.test.js',
+  reporter: 'nyan'
 };

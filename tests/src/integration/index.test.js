@@ -1,17 +1,11 @@
 // Import the dependencies for testing
-const chai = require( 'chai');
-const chaiHttp = require( 'chai-http');
-const app = require( '../../app/server');
-
-chai.use(chaiHttp);
-
-chai.should();
+const { chai, server } = require( './integration_setup');
 
 describe("Controller", () => {
     describe("Commons integration test", () => {
 
         it("GET / does not exist", (done) => {
-            chai.request(app)
+            chai.request(server)
                 .get('/')
                 .end((err, res) => {
                     res.should.have.status(404);
