@@ -1,5 +1,5 @@
 const chai = require( 'chai');
-const exampleModel = require( '../../../app/src/models/example');
+const exampleModel = require( '../../app/src/models/example');
 
 var assert = chai.assert;
 

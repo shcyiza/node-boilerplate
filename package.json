@@ -19,7 +19,7 @@
   },
   "scripts": {
     "tests": "mocha --exit",
-    "tdd": "mocha -w",
+    "tdd": "mocha -w --recussive",
     "start": "nodemon src/server.js"
   },
   "author": "",

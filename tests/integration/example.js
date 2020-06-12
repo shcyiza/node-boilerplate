@@ -1,12 +1,18 @@
 // Import the dependencies for testing
-const { chai, server } = require( './integration_setup');
+const chai = require( 'chai');
+const chaiHttp = require( 'chai-http');
+const app = require( '../../app/server');
+
+chai.use(chaiHttp);
+
+chai.should();
 
 describe("Example Contoller", (done) => {
  
     it("GET /api/v1/example/show/:id should give object with property id", (done) => {
         const id = "5";
 
-        chai.request(server)
+        chai.request(app)
             .get(`/api/v1/example/show/${id}`)
             .end((err, res) => {
                 res.should.have.status(200);
@@ -16,17 +22,17 @@ describe("Example Contoller", (done) => {
     });
 
     const newExempleRuner = (testString, done) => {
-        const reqBody = { message: testString };
-        const expected = { example: testString }
+        const reqBody = {message: testString};
+        const expected = {example: testString}
 
-        chai.request(server)
+        chai.request(app)
             .post(`/api/v1/example/new/`)
             .set('Content-Type', 'application/json')
             .send(reqBody)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.eql(expected);
-                done()
+                done();
             });
     }
 
