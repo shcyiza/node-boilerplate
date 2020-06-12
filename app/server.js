@@ -25,10 +25,10 @@ app.all('/*', (req, res) => {
   res.apiNotFound(new Error("Route not found"));
 });
  
-app.listen(3000, () => consola.ready({
+const server = app.listen(3000, () => consola.ready({
     message: `Server connected at port ${process.env.SERVER_PORT}`,
     badge: true,
   })
 );
 
-module.exports = app;
+module.exports = server;
