@@ -7,10 +7,7 @@ const init = () => {
         badge: true,
     })
 
-    if(
-        process.env.NODE_ENV === 'test'
-        && process.env.SERVER_PORT === null
-    ) require('dotenv-flow').config();
+    require('dotenv-flow').config();
 }
 
 module.exports = init;
