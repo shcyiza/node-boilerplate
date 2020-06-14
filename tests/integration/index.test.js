@@ -1,4 +1,4 @@
-const { chai, server } = require('./chaiServer');
+const { chai, server } = require('../config/chaiServer');
 
 describe("Controller", () => {
     describe("Commons integration test", () => {

@@ -1,5 +1,5 @@
 // Import the dependencies for testing
-const { chai, server } = require('./chaiServer');
+const { chai, server } = require('../config/chaiServer');
 
 describe("Example Contoller", (done) => {
  

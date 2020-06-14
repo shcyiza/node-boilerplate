@@ -1,10 +1,10 @@
-require('dotenv').config();
+require('./config/dotEnv')();
 const express = require('express');
 const consola = require('consola');
 
 const cors = require('cors');
 
-const loggingConfig = require('./config/LogginConfig');
+const loggingConfig = require('./config/logginConfig');
 const responder = require('./middlewares/responder');
 const app = express();
 
